@@ -13,7 +13,7 @@ export default async function NewTickets() {
     const session = await getServerSession(authOptions);
 
     if(!session || !session.user) {
-        return NextResponse.redirect("/login");
+        redirect("/login");
     }
 
     const customers = await prisma.customer.findMany({

@@ -36,7 +36,6 @@ export function TicketItem({ tickets, customer }: TicketItemProps) {
             router.refresh();
         } catch (err) {
             toast.error("Failed to conclude ticket");
-            return
         }
     }
     function btnOpenModal() {

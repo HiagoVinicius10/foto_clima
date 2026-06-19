@@ -49,7 +49,6 @@ export default function OpenTicket() {
 
         } catch (err) {
             setError("email", { type: "custom", message: "Ops, cliente não encontrado" });
-            return;
         }
 
     }

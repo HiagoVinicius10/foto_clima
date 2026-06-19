@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export function LoginForm() {
     const [email, setEmail] = useState("");
@@ -26,9 +27,20 @@ export function LoginForm() {
         setLoading(false)
 
         if(!res?.error){
+
+            toast.success("Login realizado com sucesso!",{
+                duration: 4000,
+                style: {
+                    borderRadius: "10px",
+                    background: "#ffffff",
+                    color: "#0d9c20",
+                    fontSize: "1.1rem",
+                    fontWeight: "600"
+                }
+            })
             router.push("/dashboard")
         }else{
-            alert("Falha no login. Verifique suas credenciais.");
+            toast.error("Falha no login. Verifique suas credenciais.");
         }  
 
    
