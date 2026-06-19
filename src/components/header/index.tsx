@@ -11,12 +11,10 @@ export function Header () {
         await signOut({ callbackUrl: "/" })
     }
 
-    console.log(signOut)
-
     return(
         <header className="w-full h-16 flex items-center justify-between px-6">
             <div>
-                <Link href="dashboard">
+                <Link href="/dashboard">
                     <h1 className="font-bold text-2xl text-black hover:scale-105 transition-transform duration-300">
                         Foto<span className="text-blue-500">Clima</span>
                     </h1>

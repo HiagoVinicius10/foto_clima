@@ -1,17 +1,16 @@
 import { Container } from "@/components/container"
-/* import {getServerSession} from "next-auth"
-import { authOptions} from "@/lib/auth"
+import {getServerSession} from "next-auth"
+import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation"
-import { Tickets } from "./components/ticket"
-import prisma from "@/lib/prisma"
- */
+
 import Link from "next/link"
 import { ButtonReflesh } from "./components/buttonReflesh"
-import { Header } from "@/components/header"
+import { TicketItem } from "./components/ticket"
+import { prisma } from "@/lib/prisma";
 
 
 export default async function Dashboard(){
- /* const session = await getServerSession(authOptions)
+ const session = await getServerSession(authOptions)
 
  if(!session || !session.user){
     redirect("/")
@@ -28,17 +27,16 @@ export default async function Dashboard(){
     customer: true,
   },
   orderBy:{
-    createdAt: "desc"
+    created_at: "desc"
   }
- }) */
+ })
 
 
     return(
        <Container>
-         <Header />
-           <main>
+           <main className="mt-9 mb-2">
                 <div className="flex items-center justify-between mb-8 mt-7">
-                  <h1 className="text-2xl font-black"> Chamados </h1>
+                  <h1 className="text-3xl font-bold"> Chamados </h1>
                   
                   <div className="flex items-center gap-3">
                   <ButtonReflesh />
@@ -48,31 +46,34 @@ export default async function Dashboard(){
                   </div>
                 </div>
 
-              <table className="min-w-full my-2 ">
-                <thead>
-                    <tr>
+              <table className="min-w-full my-2">
+                <tbody>
+                    <tr className="text-center">
                         <th className="font-medium text-left pl-2">CLIENTE</th>
                         <th className="font-medium text-left hidden sm:block">DATA CADASTRO</th>
-                        <th className="font-medium text-left">STATUS</th>
-                        <th className="font-medium text-left">#</th>
+                        <th className="font-medium ">STATUS</th>
+                        <th className="font-medium ">#</th>
                     </tr>
-                </thead>
-                {/* <tbody>
+                </tbody>
+                  
+                  
+                <tbody>
                     {tickets.map((ticket) => (
-                        <Tickets 
+                        <TicketItem 
                         key={ticket.id}
+                        tickets={ticket}
                         customer={ticket.customer}
-                        ticket={ticket}
                         />
                     ))}
-                </tbody> */}
+                </tbody>
+
               </table>
 
-              {/* {tickets.length === 0 && (
+              {tickets.length === 0 && (
                   <h2 className="text-center font-medium text-gray-600 mt-8">
                         Nenhum chamado encontrado
                   </h2>
-                    )} */}
+                    )}
            </main>
         </Container>
       

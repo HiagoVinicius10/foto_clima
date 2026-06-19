@@ -1,6 +1,7 @@
 "use client"
 
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -29,13 +30,14 @@ export function LoginForm() {
         }else{
             alert("Falha no login. Verifique suas credenciais.");
         }  
+
    
     }
 
     return(
         <form 
         onSubmit={handleLogin}
-        className="bg-amber-50 p-20 rounded-lg w-3xl max-w-full flex justify-center items-center flex-col gap-2 border-2 border-gray-200 shadow-lg">
+        className="bg-amber-50 p-20 rounded-lg w-3xl max-w-full flex justify-center items-center flex-col gap-2 border-3 border-gray-300 shadow-lg">
 
         <div className="text-center mb-6">
             <h1 className="text-3xl font-bold"> 
@@ -76,6 +78,11 @@ export function LoginForm() {
                 `}>
                     { loading ? "Entrando..." : "Entrar"}
             </button>
+
+            <p className="text-xs mt-4">
+                  Ainda não possui uma conta?
+                  <Link href="/register" className="text-blue-700 text-base font-medium"> clique aqui </Link> 
+             </p>
 
         </form>
     )
