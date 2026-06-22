@@ -37,8 +37,12 @@ export async function POST(request: Request) {
     );
 
    } catch (error) {
+    console.log("ERRO AO CRIAR USUARIO", error);
+    
     return NextResponse.json(
-        { error: "Failed to create user" }, 
+        { error: "Failed to create user",
+          details: String(error),
+         }, 
         { status: 500 }
     );
    }
